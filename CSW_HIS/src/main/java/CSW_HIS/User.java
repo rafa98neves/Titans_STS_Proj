@@ -1,14 +1,12 @@
 package CSW_HIS;
 
-import java.sql.Date;
-
 public class User {
-	private long id;
+	private int id;
 	private final String name;
 	private final int age;
 	private final String address;
 	
-	public User(long id, String name, int age, String address) {
+	public User(int id, String name, int age, String address) {
 		this.id = id;
 		this.name = name;
 		this.age = age;
@@ -27,11 +25,11 @@ public class User {
 		return address;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 		

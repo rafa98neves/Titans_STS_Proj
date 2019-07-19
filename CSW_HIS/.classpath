@@ -31,5 +31,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.buildship.core.gradleclasspathcontainer"/>
 	<classpathentry kind="lib" path="/home/rafa/Desktop/mysql-connector-java-5.1.47/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="/home/rafa/Desktop/java-json.jar"/>
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>

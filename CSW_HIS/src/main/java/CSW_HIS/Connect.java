@@ -1,7 +1,7 @@
 package CSW_HIS;
 
 import java.sql.*;
-import javax.sql.*;
+import java.util.ArrayList;
 
 public class Connect
 {
@@ -10,7 +10,7 @@ public class Connect
    {
        try
        {
-           String url = "jdbc:mysql://172.17.0.2:3306/test";
+           String url = "jdbc:mysql://172.17.0.2:3306/test?useSSL=false";
            Class.forName ("com.mysql.jdbc.Driver");
            conn = DriverManager.getConnection (url,"root","root");
            System.out.println ("Database connection established");
@@ -45,19 +45,23 @@ public class Connect
        CloseConn();
    }
    
-   public ResultSet GetInfo(String request) {
+   public ArrayList<User> GetInfo(String request) {
 	   connection();
 	   ResultSet stat = null;
+	   ArrayList<User> information = new ArrayList<User>();
        try {
-	       PreparedStatement statment = conn.prepareStatement(request);
-	       statment.execute();
-	       stat = statment.getResultSet();
+    	   Statement statment = conn.createStatement();
+    	   stat = statment.executeQuery(request);
+	       while(stat.next()) {
+	    	   User novo = new User(stat.getInt("id"),stat.getString("name"), stat.getInt("age"),stat.getString("address"));
+	    	   information.add(novo);
+	       }
        }
        catch(Exception c) {
     	   System.out.println("Error inserting data");
        };
        CloseConn();
-       return stat;
+       return information;
    }
    
 }

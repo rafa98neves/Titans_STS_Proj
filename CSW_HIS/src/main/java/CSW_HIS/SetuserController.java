@@ -1,6 +1,6 @@
 package CSW_HIS;
 
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.ArrayList;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class SetuserController {
-    private int counter =0;
 
     @RequestMapping("/setuser")
     public ResponseEntity user(@RequestParam(value="name", defaultValue="World") String name,
@@ -16,12 +15,10 @@ public class SetuserController {
     		@RequestParam(value="address", defaultValue="World") String address){
 	       		
     			Connect c = new Connect();
-    			c.Insert(String.format("INSERT INTO users(id,name,age,address) VALUES (%d,%s,%d,%s)",counter,name,Integer.parseInt(age), address));
-	       		/*Connect c = new Connect();
-    			c.Insert(String.format("INSERT INTO users(id,name,age,address) VALUES (%d,%s,%d,%s)",counter,name,Integer.parseInt(age), address));*/
+    			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (%s,%d,%s)",name,Integer.parseInt(age), address));
     			
-	       		return new ResponseEntity("<html><body><h2>User added!!</h2></html>", HttpStatus.CREATED);
-	       		
+    			ArrayList<User> info = c.GetInfo(String.format("SELECT * FROM users"));
+    	    	return new ResponseEntity<ArrayList<User>>(info, HttpStatus.CREATED);
     		}
        
 }
