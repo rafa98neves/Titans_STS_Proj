@@ -5,7 +5,7 @@ Documentation	Test different inputs on greetings
 *** Test Cases ***
 
 Default Test
-  ${name}  Send Default Request  Greetings
+  ${name}  Send Default Request  greeting
   Log  ${name}
 
 Default Test w/ invalid endpoint
@@ -13,11 +13,11 @@ Default Test w/ invalid endpoint
   Log  ${name}
 
 Valid endpoint and valid name
-  ${name}  Send Request  Greetings  Rafa
+  ${name}  Send Request  greeting  Rafa
   Log  ${name}
 
 Valid endpoint and invalid name
-  ${name}  Send Request  Greetings  João
+  ${name}  Send Request  greeting  João
   Log  ${name}
 
 Invalid endpoint and valid name
