@@ -4,6 +4,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+        classpath 'mysql:mysql-connector-java:5.1.34'  
     }
 }
 
@@ -22,10 +23,16 @@ repositories {
     mavenCentral()
 }
 
+jar { 
+    baseName = "sb-jdbc" 
+    version = "0.1" 
+} 
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+	compile("mysql:mysql-connector-java:5.1.34")
     compile("org.springframework.boot:spring-boot-starter-web")
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
