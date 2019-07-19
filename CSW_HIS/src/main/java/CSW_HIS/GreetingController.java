@@ -15,7 +15,7 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
 
     @RequestMapping("/greeting")
-    public ResponseEntity greeting(@RequestParam(value="name", defaultValue="World") String name) throws Exception{
+    public ResponseEntity<?> greeting(@RequestParam(value="name", defaultValue="World") String name) throws Exception{
        	Pattern pattern = Pattern.compile("[a-zA-Z0-9]*");
        	Matcher matcher = pattern.matcher(name);
        	if(matcher.matches()) {

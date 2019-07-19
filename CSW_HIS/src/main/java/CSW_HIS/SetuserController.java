@@ -10,9 +10,22 @@ import org.springframework.web.bind.annotation.*;
 public class SetuserController {
 
     @RequestMapping("/setuser")
-    public ResponseEntity user(@RequestParam(value="name", defaultValue="World") String name,
-    		@RequestParam(value="age", defaultValue="") String age,
-    		@RequestParam(value="address", defaultValue="World") String address){
+    public ResponseEntity<?> user(@RequestParam(value="name") String name,
+    		@RequestParam(value="age") String age,
+    		@RequestParam(value="address") String address){
+    	
+	       		if(name.equals("")) {
+	       			return new ResponseEntity<>("Insert a name please!", HttpStatus.CREATED);
+	       		}
+	       		else if(age.isEmpty()) {
+	       			return new ResponseEntity<>("Insert an age please!", HttpStatus.CREATED);
+	       		}
+	       		else if(address.equals("")) {
+	       			return new ResponseEntity<>("Insert an address please!", HttpStatus.CREATED);
+	       		}
+	       		else if(!age.matches("\\d+")) {
+	       			return new ResponseEntity<>("Age must be numeric", HttpStatus.CREATED);
+	       		}
 	       		
     			Connect c = new Connect();
     			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (%s,%d,%s)",name,Integer.parseInt(age), address));
