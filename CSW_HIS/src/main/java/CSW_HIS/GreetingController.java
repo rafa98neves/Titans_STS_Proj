@@ -23,7 +23,8 @@ public class GreetingController {
        		return new ResponseEntity<Greeting>(greet, HttpStatus.CREATED);
        	}
        	else {
-       		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid input -> " + name);
+       		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("<html><body><h2>Error Page</h2><div>Status code: <b>400</b></div>\n<div>Exception Message: <b>Invalid input</b></div><body></html>");
        	}
     }
+       
 }

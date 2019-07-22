@@ -3,17 +3,27 @@ Library  hello.py
 Documentation	Test different inputs on greetings
 
 *** Test Cases ***
-First Test
-  ${name}  Send Default Request
-  Log  ${name}
-Second Test
-  ${name}  Send Request  Rafa
+
+Default Test
+  ${name}  Send Default Request  greeting
   Log  ${name}
 
-Third Test
-  ${name}  Send Request  João
+Default Test w/ invalid endpoint
+  ${name}  Send Default Request  Bacalhau
   Log  ${name}
 
-Fourth Test
-  ${name}  Send Request  "
+Valid endpoint and valid name
+  ${name}  Send Request  greeting  Rafa
+  Log  ${name}
+
+Valid endpoint and invalid name
+  ${name}  Send Request  greeting  João
+  Log  ${name}
+
+Invalid endpoint and valid name
+  ${name}  Send Request  Bacalhau  ComNata
+  Log  ${name}
+
+Invalid endpoint and invalid name
+  ${name}  Send Request  Bacalhau  "
   Log  ${name}
