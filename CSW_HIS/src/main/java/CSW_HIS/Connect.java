@@ -10,8 +10,8 @@ public class Connect
    {
        try
        {
-           String url = "jdbc:mysql://172.17.0.2:3306/test?useSSL=false";
-           Class.forName ("com.mysql.jdbc.Driver");
+           String url = "jdbc:mysql://172.17.0.2:3306/test";
+           Class.forName ("com.mysql.cj.jdbc.Driver");
            conn = DriverManager.getConnection (url,"root","root");
            System.out.println ("Database connection established");
        }
