@@ -25,38 +25,59 @@
 
       <div id="table-area">
         <table class="data-users-js">
-          <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Age</th>
-            <th>Address</th>
-          </tr>
-          <tr>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-            <td>...</td>
-          </tr>
+        	<thead>
+	          <tr>
+	            <th>Username</th>
+	            <th>Age</th>
+	            <th>Address</th>
+	            <th>ID</th>
+	          </tr>
+        	</thead>
+        	<tbody>
+	          <tr>
+	            <td>...</td>
+	            <td>...</td>
+	            <td>...</td>
+	            <td>...</td>
+	          </tr>
+        	</tbody>
         </table>
       </div>
     </div>
   </body>
 </html>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+    	$("#getuser").bind("click", function() { 
+		 	$('#table-area tbody').empty();
+        	$.get("http://localhost:8080/getuser", 
+							{ name:$("input[id=username]").val(), 
+							age:$("input[id=age]").val(), 
+							address:$("input[id=address]").val() }, function(data) {			
+            	$.each(data, function(i, User) {
+            		$(".data-users-js").append(
+	                    "<tr><td>" + User.name + "</td>" +
+	                    "<td>" + User.age + "</td>" +
+	                    "<td>" + User.address + "</td>" +
+	                    "<td>" + User.id + "</td></tr>");
+            	});
 
-        $("#adduser").bind("click", function() {
-
-            $.get("http://localhost:8080/setusers", function(data) {
-
-                $.each(data, function(i, user) {
-
-                    $(".data-users-js").append(
-                        "<tr><td>" + user.name + "</td>" +
-                        "<td>" + user.age + "</td>" +
-                        "<td>" + user.address + "</td></tr>");
-                });
-
-            });
-        });
-    </script>
+        	});
+	    });
+	    $("#adduser").bind("click", function() { 
+        	$.get("http://localhost:8080/setuser", 
+							{ name:$("input[id=username]").val(), 
+							age:$("input[id=age]").val(), 
+							address:$("input[id=address]").val() }, function(data) {			
+            	if (!$.trim(data)){   
+				    alert("Error adding user");
+				}
+				else{   
+				    alert("User added, you can now look for him :)");
+				}
+        	});
+	    });
+	});
+</script>

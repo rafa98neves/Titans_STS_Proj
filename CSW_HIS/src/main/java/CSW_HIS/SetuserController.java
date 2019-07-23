@@ -15,20 +15,20 @@ public class SetuserController {
     		@RequestParam(value="address") String address){
     	
 	       		if(name.equals("")) {
-	       			return new ResponseEntity<>("Insert a name please!", HttpStatus.CREATED);
+	       			return new ResponseEntity<>("Insert a name please!", HttpStatus.BAD_REQUEST);
 	       		}
 	       		else if(age.isEmpty()) {
-	       			return new ResponseEntity<>("Insert an age please!", HttpStatus.CREATED);
+	       			return new ResponseEntity<>("Insert an age please!", HttpStatus.BAD_REQUEST);
 	       		}
 	       		else if(address.equals("")) {
-	       			return new ResponseEntity<>("Insert an address please!", HttpStatus.CREATED);
+	       			return new ResponseEntity<>("Insert an address please!", HttpStatus.BAD_REQUEST);
 	       		}
 	       		else if(!age.matches("\\d+")) {
-	       			return new ResponseEntity<>("Age must be numeric", HttpStatus.CREATED);
+	       			return new ResponseEntity<>("Age must be numeric", HttpStatus.BAD_REQUEST);
 	       		}
-	       		
+	       		System.out.println("." + name + "." + age +"." + address);
     			Connect c = new Connect();
-    			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (%s,%d,%s)",name,Integer.parseInt(age), address));
+    			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (\"%s\",%d,\"%s\")",name,Integer.parseInt(age), address));
     			
     			ArrayList<User> info = c.GetInfo(String.format("SELECT * FROM users"));
     	    	return new ResponseEntity<ArrayList<User>>(info, HttpStatus.CREATED);
