@@ -10,9 +10,9 @@ public class Connect
    {
        try
        {
-           String url = "jdbc:mysql://172.17.0.2:3306/test";
+           String url = "jdbc:mysql://192.168.0.247:3306/magicsucks";
            Class.forName ("com.mysql.cj.jdbc.Driver");
-           conn = DriverManager.getConnection (url,"root","root");
+           conn = DriverManager.getConnection (url,"remoteuser","password");
            System.out.println ("Database connection established");
        }
        catch (Exception e)
