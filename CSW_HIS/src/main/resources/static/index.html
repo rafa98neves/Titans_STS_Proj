@@ -10,7 +10,7 @@
   <body>
     <div class="p-1 container-fluid" id="top-bar">
       <h3 id="main-title" class="col-3 col-sm-4 col-xs-8 my-2">Greeting Bot</h3>
-      <h6 id="credits" class="col-lg-3 col-sm-4 col-xs-8 my-3">by Coimbra Titans<img class="mx-2" src="images/csw.png" alt"CSW" /></h6>
+      <a href="titans.html" ><h6 id="credits" class="col-lg-3 col-sm-4 col-xs-8 my-3">by Coimbra Titans<img class="mx-2" src="images/csw.png" alt"CSW" /></h6></a>
     </div>
     <div id="main-area">
       <div class="m-5 col-8" id="search-create">
@@ -30,12 +30,10 @@
 	            <th>Username</th>
 	            <th>Age</th>
 	            <th>Address</th>
-	            <th>ID</th>
 	          </tr>
         	</thead>
         	<tbody>
 	          <tr>
-	            <td>...</td>
 	            <td>...</td>
 	            <td>...</td>
 	            <td>...</td>
@@ -60,8 +58,7 @@
             		$(".data-users-js").append(
 	                    "<tr><td>" + User.name + "</td>" +
 	                    "<td>" + User.age + "</td>" +
-	                    "<td>" + User.address + "</td>" +
-	                    "<td>" + User.id + "</td></tr>");
+	                    "<td>" + User.address + "</td></tr>");
             	});
 
         	}).fail(function(data) {
