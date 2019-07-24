@@ -34,7 +34,7 @@ public class SetuserController {
 	       		else if(!age.matches("\\d+")) {
 	       			return new ResponseEntity<>("Age must be numeric", HttpStatus.BAD_REQUEST);
 	       		}
-	       		System.out.println("." + name + "." + age +"." + address);
+
     			Connect c = new Connect();
     			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (\"%s\",%d,\"%s\")",name,Integer.parseInt(age), address));
     			

@@ -13,7 +13,6 @@ public class Connect
            String url = "jdbc:mysql://192.168.0.123:3306/InternshipDB";
            Class.forName ("com.mysql.cj.jdbc.Driver");
            conn = DriverManager.getConnection (url,"remoteuser","password");
-           System.out.println ("Database connection established");
        }
        catch (Exception e)
        {
@@ -26,7 +25,6 @@ public class Connect
     	   try
 		   {
 		       conn.close ();
-		       System.out.println ("Database connection terminated");
 		   }
 		   catch (Exception e) { /* ignore close errors */ }
        }
