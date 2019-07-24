@@ -15,7 +15,7 @@
     <div id="main-area">
       <div class="m-5 col-8" id="search-create">
       <input id="username" class="col-3 mx-2" placeholder="Username..." type="text"></input>
-      <input id="age" class="col-2 mx-2" placeholder="Age..." type="number" min="0" max="120"></input>
+      <input id="age" class="col-2 mx-2" placeholder="Age..." min="0" max="120"></input>
       <input id="address" class="col-3 mx-2" placeholder="Address..." type="text"></input>
       <button id="adduser" type="submit" class="btn btn-info col-1 mx-2">
         <i class="fa fa-plus"></i></button>
@@ -64,8 +64,12 @@
 	                    "<td>" + User.id + "</td></tr>");
             	});
 
-        	});
+        	}).fail(function(data) {
+    			alert(data.responseText);
+    		});
 	    });
+	    
+	    
 	    $("#adduser").bind("click", function() { 
         	$.get("http://localhost:8080/setuser", 
 							{ name:$("input[id=username]").val(), 
@@ -77,7 +81,9 @@
 				else{   
 				    alert("User added, you can now look for him :)");
 				}
-        	});
+        	}).fail(function(data) {
+    			alert(data.responseText);
+    		});
 	    });
 	});
 </script>

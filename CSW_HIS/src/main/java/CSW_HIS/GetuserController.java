@@ -2,6 +2,7 @@ package CSW_HIS;
 
 import java.util.ArrayList;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,11 @@ public class GetuserController {
     		@RequestParam(value="name", defaultValue="") String name,
     		@RequestParam(value="age", defaultValue="") String age,
     		@RequestParam(value="address", defaultValue="") String address){
-    			
+
+   		if(!Numeric(age) && age.compareTo("")!=0) {
+   			return new ResponseEntity<>("Age must be numeric", HttpStatus.BAD_REQUEST);
+   		}
+   		
     	ArrayList<User> info;
     	Connect c = new Connect();
     	if(name.equals("") && age.isEmpty() && address.equals("")) {
@@ -35,7 +40,6 @@ public class GetuserController {
         		if(increment_and) req = req.concat(String.format(" AND name LIKE \"%s\"",name));
         		else req = req.concat(String.format("name LIKE \"%s\"",name));
         	}
-        	System.out.println(req);
     		info = c.GetInfo(req);
     	}
     	return new ResponseEntity<ArrayList<User>>(info, HttpStatus.OK);		

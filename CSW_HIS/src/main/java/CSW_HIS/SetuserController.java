@@ -1,6 +1,8 @@
 package CSW_HIS;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +16,14 @@ public class SetuserController {
     		@RequestParam(value="age") String age,
     		@RequestParam(value="address") String address){
     	
+		    	Pattern pattern = Pattern.compile("[a-zA-Z0-9]*");
+		       	Matcher matcher = pattern.matcher(name);
+		       	
 	       		if(name.equals("")) {
 	       			return new ResponseEntity<>("Insert a name please!", HttpStatus.BAD_REQUEST);
+	       		}
+	       		else if(!matcher.matches()) {
+	       			return new ResponseEntity<>("Invalid characters in your name!", HttpStatus.BAD_REQUEST);
 	       		}
 	       		else if(age.isEmpty()) {
 	       			return new ResponseEntity<>("Insert an age please!", HttpStatus.BAD_REQUEST);

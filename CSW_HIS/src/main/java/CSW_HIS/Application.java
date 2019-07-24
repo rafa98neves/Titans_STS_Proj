@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 @SpringBootApplication
 @Controller
@@ -15,11 +16,15 @@ public class Application {
 				SpringApplication.run(Application.class, args);
 	}
 	
-	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+    public RedirectView Init() {
+		return new RedirectView("/GreetingBot");
+    }
+	
+	@RequestMapping(value = "/GreetingBot", method = RequestMethod.GET)
     public String HomePage() {
         return "index.html";
     }
-
 }
 
     
