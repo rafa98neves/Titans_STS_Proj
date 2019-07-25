@@ -1,0 +1,102 @@
+#top-bar {
+  width:100%;
+  background-color:#400707;
+  top:0;
+  height:4rem;
+}
+
+#main-title {
+  font-family:Arial;
+  color:white;
+  margin-left:16%;
+  padding:0;
+  float:left;
+}
+
+#credits {
+  color:white;
+  float:right;
+  vertical-align: middle;
+}
+
+#main-area {
+  width:100%;
+  text-align:center;
+}
+
+#search-create {
+  border:solid #400707;
+  display:inline-block;
+  text-align:center;
+  width:65%;
+}
+
+.subtitle {
+  float:left;
+  display:block;
+}
+
+#adduser {
+  height:34px;
+  background-color:#CC1616;
+  border:0;
+}
+
+#search {
+  background-color:#CC1616;
+  border:0;
+  height:34px;
+}
+
+#table-area {
+  width:100%;
+  text-align:center;
+}
+
+table {
+  border:solid #400707;
+  margin:auto;
+  width:65%;
+}
+
+table * {
+  padding:5px;
+}
+
+#back-link {
+  color:white;
+  float:left;
+  height:100%;
+  width:5%;
+  text-align:center;
+  font-size:24px;
+}
+
+.fa-arrow-left {
+  vertical-align:middle;
+}
+
+#info {
+  color:#8C0F0F;
+  float:right;
+  width:26%;
+  text-align:center;
+  font-family: Roboto;
+  height:100%;
+}
+
+#teapot-title {
+  padding-top:20px;
+  font-weight: bold;
+}
+
+#teapot-body * {
+  margin: 20px 0 20px 0;
+  height:80%;         //problemos
+}
+
+#teapot-footer {
+  position: fixed;
+  bottom:0;
+  padding-bottom:20px;
+}
