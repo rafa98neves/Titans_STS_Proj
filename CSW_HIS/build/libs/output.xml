@@ -1,144 +1,278 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20190718 16:21:26.048" generator="Robot 3.1.2 (Python 2.7.15+ on linux2)">
-<suite source="/home/rafa/Desktop/CSW_HIS/build/libs/test.robot" id="s1" name="Test">
-<test id="s1-t1" name="Default Test">
-<kw name="Send Default Request" library="hello">
+<robot rpa="false" generated="20190725 14:21:38.053" generator="Robot 3.1.2 (Python 2.7.15+ on linux2)">
+<suite source="/home/rafa/Desktop/Titans_STS_Proj/CSW_HIS/build/libs/testUser.robot" id="s1" name="testUser">
+<test id="s1-t1" name="invalid age">
+<kw name="Test user parameters">
 <arguments>
-<arg>greeting</arg>
+<arg>${V_ENDPOINT}</arg>
+<arg>${V_NAME}</arg>
+<arg>${V_NAME}</arg>
+<arg>${NUMERICAL}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.470" level="INFO">http://localhost:8080/greeting</msg>
-<msg timestamp="20190718 16:21:26.470" level="INFO">${name} = 201</msg>
-<status status="PASS" endtime="20190718 16:21:26.470" starttime="20190718 16:21:26.428"></status>
+<msg timestamp="20190725 14:21:38.427" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.428" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.428" starttime="20190725 14:21:38.223"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.470" level="INFO">201</msg>
-<status status="PASS" endtime="20190718 16:21:26.471" starttime="20190718 16:21:26.470"></status>
+<msg timestamp="20190725 14:21:38.428" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.428" starttime="20190725 14:21:38.428"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.471" critical="yes" starttime="20190718 16:21:26.427"></status>
-</test>
-<test id="s1-t2" name="Default Test w/ invalid endpoint">
-<kw name="Send Default Request" library="hello">
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>Bacalhau</arg>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.429" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.429" starttime="20190725 14:21:38.428"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.429" starttime="20190725 14:21:38.222"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.429" critical="yes" starttime="20190725 14:21:38.221"></status>
+</test>
+<test id="s1-t2" name="invalid name">
+<kw name="Test user parameters">
+<arguments>
+<arg>${V_ENDPOINT}</arg>
+<arg>${INV_CHAR}</arg>
+<arg>${NUMERICAL}</arg>
+<arg>${V_ADDRESS}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.554" level="INFO">http://localhost:8080/Bacalhau</msg>
-<msg timestamp="20190718 16:21:26.554" level="INFO">${name} = 404</msg>
-<status status="PASS" endtime="20190718 16:21:26.554" starttime="20190718 16:21:26.472"></status>
+<msg timestamp="20190725 14:21:38.459" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.459" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.459" starttime="20190725 14:21:38.430"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.555" level="INFO">404</msg>
-<status status="PASS" endtime="20190718 16:21:26.555" starttime="20190718 16:21:26.554"></status>
+<msg timestamp="20190725 14:21:38.467" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.467" starttime="20190725 14:21:38.459"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.555" critical="yes" starttime="20190718 16:21:26.471"></status>
-</test>
-<test id="s1-t3" name="Valid endpoint and valid name">
-<kw name="Send Request" library="hello">
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>greeting</arg>
-<arg>Rafa</arg>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.467" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.468" starttime="20190725 14:21:38.467"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.468" starttime="20190725 14:21:38.430"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.468" critical="yes" starttime="20190725 14:21:38.429"></status>
+</test>
+<test id="s1-t3" name="invalid address">
+<kw name="Test user parameters">
+<arguments>
+<arg>${V_ENDPOINT}</arg>
+<arg>${V_NAME}</arg>
+<arg>${NUMERICAL}</arg>
+<arg>${INV_CHAR}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.574" level="INFO">http://localhost:8080/greeting</msg>
-<msg timestamp="20190718 16:21:26.574" level="INFO">${name} = 201</msg>
-<status status="PASS" endtime="20190718 16:21:26.574" starttime="20190718 16:21:26.558"></status>
+<msg timestamp="20190725 14:21:38.492" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.492" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.492" starttime="20190725 14:21:38.472"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.575" level="INFO">201</msg>
-<status status="PASS" endtime="20190718 16:21:26.575" starttime="20190718 16:21:26.575"></status>
+<msg timestamp="20190725 14:21:38.492" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.493" starttime="20190725 14:21:38.492"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.575" critical="yes" starttime="20190718 16:21:26.556"></status>
-</test>
-<test id="s1-t4" name="Valid endpoint and invalid name">
-<kw name="Send Request" library="hello">
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>greeting</arg>
-<arg>João</arg>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.493" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.493" starttime="20190725 14:21:38.493"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.493" starttime="20190725 14:21:38.472"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.495" critical="yes" starttime="20190725 14:21:38.468"></status>
+</test>
+<test id="s1-t4" name="empty name">
+<kw name="Test user parameters">
+<arguments>
+<arg>${V_ENDPOINT}</arg>
+<arg>${EMPTY}</arg>
+<arg>${NUMERICAL}</arg>
+<arg>${V_ADDRESS}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.621" level="INFO">http://localhost:8080/greeting</msg>
-<msg timestamp="20190718 16:21:26.622" level="INFO">${name} = 400</msg>
-<status status="PASS" endtime="20190718 16:21:26.622" starttime="20190718 16:21:26.587"></status>
+<msg timestamp="20190725 14:21:38.522" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.522" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.522" starttime="20190725 14:21:38.497"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.622" level="INFO">400</msg>
-<status status="PASS" endtime="20190718 16:21:26.622" starttime="20190718 16:21:26.622"></status>
+<msg timestamp="20190725 14:21:38.524" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.524" starttime="20190725 14:21:38.524"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.623" critical="yes" starttime="20190718 16:21:26.576"></status>
-</test>
-<test id="s1-t5" name="Invalid endpoint and valid name">
-<kw name="Send Request" library="hello">
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>Bacalhau</arg>
-<arg>ComNata</arg>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.524" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.524" starttime="20190725 14:21:38.524"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.524" starttime="20190725 14:21:38.496"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.527" critical="yes" starttime="20190725 14:21:38.496"></status>
+</test>
+<test id="s1-t5" name="empty age">
+<kw name="Test user parameters">
+<arguments>
+<arg>${V_ENDPOINT}</arg>
+<arg>${V_NAME}</arg>
+<arg>${EMPTY}</arg>
+<arg>${V_ADDRESS}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.640" level="INFO">http://localhost:8080/Bacalhau</msg>
-<msg timestamp="20190718 16:21:26.640" level="INFO">${name} = 404</msg>
-<status status="PASS" endtime="20190718 16:21:26.641" starttime="20190718 16:21:26.624"></status>
+<msg timestamp="20190725 14:21:38.550" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.550" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.550" starttime="20190725 14:21:38.534"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.641" level="INFO">404</msg>
-<status status="PASS" endtime="20190718 16:21:26.641" starttime="20190718 16:21:26.641"></status>
+<msg timestamp="20190725 14:21:38.551" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.551" starttime="20190725 14:21:38.551"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.645" critical="yes" starttime="20190718 16:21:26.623"></status>
-</test>
-<test id="s1-t6" name="Invalid endpoint and invalid name">
-<kw name="Send Request" library="hello">
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
 <arguments>
-<arg>Bacalhau</arg>
-<arg>"</arg>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.551" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.551" starttime="20190725 14:21:38.551"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.551" starttime="20190725 14:21:38.533"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.552" critical="yes" starttime="20190725 14:21:38.533"></status>
+</test>
+<test id="s1-t6" name="empty address">
+<kw name="Test user parameters">
+<arguments>
+<arg>${V_ENDPOINT}</arg>
+<arg>${V_NAME}</arg>
+<arg>${NUMERICAL}</arg>
+<arg>${EMPTY}</arg>
+</arguments>
+<kw name="Send NewUser" library="hello">
+<arguments>
+<arg>${endpoint}</arg>
+<arg>${name}</arg>
+<arg>${age}</arg>
+<arg>${address}</arg>
 </arguments>
 <assign>
-<var>${name}</var>
+<var>${resp}</var>
 </assign>
-<msg timestamp="20190718 16:21:26.674" level="INFO">http://localhost:8080/Bacalhau</msg>
-<msg timestamp="20190718 16:21:26.674" level="INFO">${name} = 404</msg>
-<status status="PASS" endtime="20190718 16:21:26.674" starttime="20190718 16:21:26.646"></status>
+<msg timestamp="20190725 14:21:38.569" level="INFO">http://localhost:8080/setuser</msg>
+<msg timestamp="20190725 14:21:38.569" level="INFO">${resp} = 400</msg>
+<status status="PASS" endtime="20190725 14:21:38.569" starttime="20190725 14:21:38.557"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>${name}</arg>
+<arg>${resp}</arg>
 </arguments>
-<msg timestamp="20190718 16:21:26.675" level="INFO">404</msg>
-<status status="PASS" endtime="20190718 16:21:26.675" starttime="20190718 16:21:26.675"></status>
+<msg timestamp="20190725 14:21:38.569" level="INFO">400</msg>
+<status status="PASS" endtime="20190725 14:21:38.569" starttime="20190725 14:21:38.569"></status>
 </kw>
-<status status="PASS" endtime="20190718 16:21:26.675" critical="yes" starttime="20190718 16:21:26.646"></status>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${resp}</arg>
+<arg>400</arg>
+</arguments>
+<msg timestamp="20190725 14:21:38.570" level="INFO">Argument types are:
+&lt;type 'str'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20190725 14:21:38.570" starttime="20190725 14:21:38.570"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.570" starttime="20190725 14:21:38.556"></status>
+</kw>
+<status status="PASS" endtime="20190725 14:21:38.579" critical="yes" starttime="20190725 14:21:38.556"></status>
 </test>
-<doc>Test different inputs on greetings</doc>
-<status status="PASS" endtime="20190718 16:21:26.676" starttime="20190718 16:21:26.051"></status>
+<doc>Test different inputs on user database</doc>
+<status status="PASS" endtime="20190725 14:21:38.580" starttime="20190725 14:21:38.054"></status>
 </suite>
 <statistics>
 <total>
@@ -148,7 +282,7 @@
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Test" pass="6">Test</stat>
+<stat fail="0" id="s1" name="testUser" pass="6">testUser</stat>
 </suite>
 </statistics>
 <errors>
