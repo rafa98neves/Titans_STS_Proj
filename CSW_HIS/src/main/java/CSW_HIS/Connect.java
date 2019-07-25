@@ -9,8 +9,9 @@ public class Connect
    private void connection()
    {
        try
+       {
+           String url = "jdbc:mysql://192.168.1.226:3306/InternshipDB";
 
-           String url = "jdbc:mysql://192.168.0.123:3306/InternshipDB";
            Class.forName ("com.mysql.cj.jdbc.Driver");
            conn = DriverManager.getConnection (url,"remoteuser","password");
        }

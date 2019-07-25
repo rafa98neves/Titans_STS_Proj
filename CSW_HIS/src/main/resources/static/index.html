@@ -10,14 +10,14 @@
   <body>
     <div class="p-1 container-fluid" id="top-bar">
       <h3 id="main-title" class="col-3 col-sm-4 col-xs-8 my-2">Greeting Bot</h3>
-      <a href="titans.html" ><h6 id="credits" class="col-lg-3 col-sm-4 col-xs-8 my-3">by Coimbra Titans<img class="mx-2" src="images/csw.png" alt"CSW" /></h6></a>
+      <a href="titans.html" ><h6 id="credits" class="col-lg-3 col-sm-4 col-xs-8 my-3">by Coimbra Titans<img class="mx-2" src="images/csw.png" alt="CSW" /></h6></a>
     </div>
     <div id="main-area">
-      <div class="m-5 col-8" id="search-create">
+      <div class="p-2 m-5 col-8" id="search-create">
       <input id="username" class="col-3 mx-2" placeholder="Username..." type="text"></input>
       <input id="age" class="col-2 mx-2" placeholder="Age..." min="0" max="120"></input>
       <input id="address" class="col-3 mx-2" placeholder="Address..." type="text"></input>
-      <button id="adduser" type="submit" class="btn btn-info col-1 mx-2">
+      <button id="adduser" type="submit" class="btn btn-danger col-1 mx-2">
         <i class="fa fa-plus"></i></button>
       <button id="getuser" type="submit" class="btn btn-info col-1 mx-2">
         <i class="fa fa-search"></i></button>
@@ -73,7 +73,7 @@
 							age:$("input[id=age]").val(), 
 							address:$("input[id=address]").val() }, function(data) {			
             	if (!$.trim(data)){   
-				    alert("Error adding user");
+				    alert("Ups.. Something went wrong :(");
 				}
 				else{   
 				    alert("User added, you can now look for him :)");
