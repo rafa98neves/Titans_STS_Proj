@@ -40,7 +40,11 @@ public class SetuserController {
 	       		else if(!age.matches("\\d+")) {
 	       			return new ResponseEntity<>("Age must be numeric", HttpStatus.BAD_REQUEST);
 	       		}
-	       		
+	       	
+			//Easter Egg 2
+			if(name.equals("Teapot") || name.equals("teapot") || name.equals("pot") || name.equals("418") || name.equals("tea") || age == 418) {
+  				return new ResponseEntity<>("You're in coffee town, can't make tea here. Ask the Coimbra Titans!", HttpStatus.I_AM_A_TEAPOT);
+			}	
 
     			Connect c = new Connect();
     			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (\"%s\",%d,\"%s\")",name,Integer.parseInt(age), address));
