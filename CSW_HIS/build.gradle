@@ -37,6 +37,6 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-sonarqube {
-    androidVariant 'fullDebug'
+plugins {
+    id "org.sonarqube" version "2.7"
 }
