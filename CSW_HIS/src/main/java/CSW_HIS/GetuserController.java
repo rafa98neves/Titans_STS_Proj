@@ -2,11 +2,9 @@ package CSW_HIS;
 
 import java.util.ArrayList;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 @RestController
 public class GetuserController {
@@ -24,7 +22,7 @@ public class GetuserController {
     	ArrayList<User> info;
     	Connect c = new Connect();
     	if(name.equals("") && age.isEmpty() && address.equals("")) {
-    		info = c.GetInfo(String.format("SELECT * FROM users"));
+    		info = c.GetInfo(String.format("SELECT * FROM users ORDER BY id ASC limit 25;"));
     	}else {
     		boolean increment_and = false;
     		String req = "SELECT * FROM users WHERE ";
@@ -41,6 +39,7 @@ public class GetuserController {
         		if(increment_and) req = req.concat(String.format(" AND name LIKE \"%s\"",name));
         		else req = req.concat(String.format("name LIKE \"%s\"",name));
         	}
+        	req = req.concat(String.format(" ORDER BY id ASC limit 25;"));
     		info = c.GetInfo(req);
     	}
     	return new ResponseEntity<ArrayList<User>>(info, HttpStatus.OK);		

@@ -1,6 +1,5 @@
 package CSW_HIS;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +15,7 @@ public class SetuserController {
     		@RequestParam(value="age", required=false) String age,
     		@RequestParam(value="address", required=false) String address){
     	
-		    	Pattern pattern = Pattern.compile("[a-zA-Z0-9]*");
+		    	Pattern pattern = Pattern.compile("[a-zA-Z0-9_]*");
 		       	Matcher matcher = pattern.matcher(name);
 		       	
 	       		if(name==null) {
@@ -37,9 +36,7 @@ public class SetuserController {
 
     			Connect c = new Connect();
     			c.Insert(String.format("INSERT INTO users(name,age,address) VALUES (\"%s\",%d,\"%s\")",name,Integer.parseInt(age), address));
-    			
-    			ArrayList<User> info = c.GetInfo(String.format("SELECT * FROM users"));
-    	    	return new ResponseEntity<ArrayList<User>>(info, HttpStatus.CREATED);
+    	    	return new ResponseEntity<String>("Adicionado com sucesso!", HttpStatus.CREATED);
     		}
        
 }
