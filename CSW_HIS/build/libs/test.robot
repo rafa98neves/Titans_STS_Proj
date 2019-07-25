@@ -17,7 +17,7 @@ Valid endpoint and valid name
   Log  ${name}
 
 Valid endpoint and invalid name
-  ${name}  Send Request  greeting  João
+  ${name}  Send Request  greeting  jOÃO
   Log  ${name}
 
 Invalid endpoint and valid name
@@ -26,4 +26,8 @@ Invalid endpoint and valid name
 
 Invalid endpoint and invalid name
   ${name}  Send Request  Bacalhau  "
+  Log  ${name}
+
+Test user
+  ${name}  Send NewUser  setuser  natalia  as  pombal
   Log  ${name}

@@ -11,6 +11,7 @@ public class Connect
        try
        {
            String url = "jdbc:mysql://192.168.1.226:3306/InternshipDB";
+
            Class.forName ("com.mysql.cj.jdbc.Driver");
            conn = DriverManager.getConnection (url,"remoteuser","password");
        }
