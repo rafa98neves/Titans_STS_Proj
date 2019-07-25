@@ -6,7 +6,7 @@
 }
 
 #main-title {
-  font-family:Arial;
+  font-family:Arial, Verdana, Tahoma, Helvetica;
   color:white;
   margin-left:16%;
   padding:0;
@@ -38,14 +38,12 @@
 
 #adduser {
   height:34px;
-  background-color:#CC1616;
   border:0;
 }
 
-#search {
-  background-color:#CC1616;
-  border:0;
+#getuser {
   height:34px;
+  border:0;
 }
 
 #table-area {
