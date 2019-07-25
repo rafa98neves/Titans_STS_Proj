@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Greeting Bot</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="p-1 container-fluid" id="top-bar">
+      <h3 id="main-title" class="col-3 col-sm-4 col-xs-8 my-2">Greeting Bot</h3>
+      <a href="titans.html" ><h6 id="credits" class="col-lg-3 col-sm-4 col-xs-8 my-3">by Coimbra Titans<img class="mx-2" src="images/csw.png" alt"CSW" /></h6></a>
+    </div>
+    <div id="main-area">
+      <div class="m-5 col-8" id="search-create">
+      <input id="username" class="col-3 mx-2" placeholder="Username..." type="text"></input>
+      <input id="age" class="col-2 mx-2" placeholder="Age..." min="0" max="120"></input>
+      <input id="address" class="col-3 mx-2" placeholder="Address..." type="text"></input>
+      <button id="adduser" type="submit" class="btn btn-info col-1 mx-2">
+        <i class="fa fa-plus"></i></button>
+      <button id="getuser" type="submit" class="btn btn-info col-1 mx-2">
+        <i class="fa fa-search"></i></button>
+      </div>
+
+      <div id="table-area">
+        <table class="data-users-js">
+        	<thead>
+	          <tr>
+	            <th>Username</th>
+	            <th>Age</th>
+	            <th>Address</th>
+	          </tr>
+        	</thead>
+        	<tbody>
+	          <tr>
+	            <td>...</td>
+	            <td>...</td>
+	            <td>...</td>
+	          </tr>
+        	</tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+    	$("#getuser").bind("click", function() { 
+		 	$('#table-area tbody').empty();
+        	$.get("http://localhost:8080/getuser", 
+							{ name:$("input[id=username]").val(), 
+							age:$("input[id=age]").val(), 
+							address:$("input[id=address]").val() }, function(data) {			
+            	$.each(data, function(i, User) {
+            		$(".data-users-js").append(
+	                    "<tr><td>" + User.name + "</td>" +
+	                    "<td>" + User.age + "</td>" +
+	                    "<td>" + User.address + "</td></tr>");
+            	});
+
+        	}).fail(function(data) {
+    			alert(data.responseText);
+    		});
+	    });
+	    
+	    
+	    $("#adduser").bind("click", function() { 
+        	$.get("http://localhost:8080/setuser", 
+							{ name:$("input[id=username]").val(), 
+							age:$("input[id=age]").val(), 
+							address:$("input[id=address]").val() }, function(data) {			
+            	if (!$.trim(data)){   
+				    alert("Error adding user");
+				}
+				else{   
+				    alert("User added, you can now look for him :)");
+				}
+        	}).fail(function(data) {
+    			alert(data.responseText);
+    		});
+	    });
+	});
+</script>
