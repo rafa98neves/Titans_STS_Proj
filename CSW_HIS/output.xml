@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20190725 09:35:08.835" generator="Robot 3.1.2 (Python 2.7.15+ on linux2)">
+<suite source="/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS" id="s1" name="CSW HIS">
+<suite source="/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build" id="s1-s1" name="Build">
+<suite source="/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/libs" id="s1-s1-s1" name="Libs">
+<suite source="/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/libs/test.robot" id="s1-s1-s1-s1" name="Test">
+<test id="s1-s1-s1-s1-t1" name="Default Test">
+<kw name="Send Default Request">
+<arguments>
+<arg>greeting</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.147" level="FAIL">No keyword with name 'Send Default Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.150" starttime="20190725 09:35:09.140"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.150" critical="yes" starttime="20190725 09:35:09.125">No keyword with name 'Send Default Request' found.</status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Default Test w/ invalid endpoint">
+<kw name="Send Default Request">
+<arguments>
+<arg>Bacalhau</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.165" level="FAIL">No keyword with name 'Send Default Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.166" starttime="20190725 09:35:09.165"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.166" critical="yes" starttime="20190725 09:35:09.157">No keyword with name 'Send Default Request' found.</status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Valid endpoint and valid name">
+<kw name="Send Request">
+<arguments>
+<arg>greeting</arg>
+<arg>Rafa</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.180" level="FAIL">No keyword with name 'Send Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.182" starttime="20190725 09:35:09.171"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.183" critical="yes" starttime="20190725 09:35:09.169">No keyword with name 'Send Request' found.</status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Valid endpoint and invalid name">
+<kw name="Send Request">
+<arguments>
+<arg>greeting</arg>
+<arg>João</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.188" level="FAIL">No keyword with name 'Send Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.189" starttime="20190725 09:35:09.186"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.209" critical="yes" starttime="20190725 09:35:09.184">No keyword with name 'Send Request' found.</status>
+</test>
+<test id="s1-s1-s1-s1-t5" name="Invalid endpoint and valid name">
+<kw name="Send Request">
+<arguments>
+<arg>Bacalhau</arg>
+<arg>ComNata</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.229" level="FAIL">No keyword with name 'Send Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.230" starttime="20190725 09:35:09.215"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.231" critical="yes" starttime="20190725 09:35:09.212">No keyword with name 'Send Request' found.</status>
+</test>
+<test id="s1-s1-s1-s1-t6" name="Invalid endpoint and invalid name">
+<kw name="Send Request">
+<arguments>
+<arg>Bacalhau</arg>
+<arg>"</arg>
+</arguments>
+<assign>
+<var>${name}</var>
+</assign>
+<msg timestamp="20190725 09:35:09.239" level="FAIL">No keyword with name 'Send Request' found.</msg>
+<status status="FAIL" endtime="20190725 09:35:09.240" starttime="20190725 09:35:09.236"></status>
+</kw>
+<status status="FAIL" endtime="20190725 09:35:09.243" critical="yes" starttime="20190725 09:35:09.234">No keyword with name 'Send Request' found.</status>
+</test>
+<doc>Test different inputs on greetings</doc>
+<status status="FAIL" endtime="20190725 09:35:09.250" starttime="20190725 09:35:09.108"></status>
+</suite>
+<status status="FAIL" endtime="20190725 09:35:09.261" starttime="20190725 09:35:09.098"></status>
+</suite>
+<status status="FAIL" endtime="20190725 09:35:09.265" starttime="20190725 09:35:09.088"></status>
+</suite>
+<status status="FAIL" endtime="20190725 09:35:09.278" starttime="20190725 09:35:09.038"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="6" pass="0">Critical Tests</stat>
+<stat fail="6" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="6" id="s1" name="CSW HIS" pass="0">CSW HIS</stat>
+<stat fail="6" id="s1-s1" name="Build" pass="0">CSW HIS.Build</stat>
+<stat fail="6" id="s1-s1-s1" name="Libs" pass="0">CSW HIS.Build.Libs</stat>
+<stat fail="6" id="s1-s1-s1-s1" name="Test" pass="0">CSW HIS.Build.Libs.Test</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20190725 09:35:08.292" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/bin/main/static/index.html': Unrecognized table header 'Username'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.304" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/bin/test/index.html': Unrecognized table header 'ID'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.798" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/classes/CSW_HIS.LibraryTest.html': Unrecognized table header '1 tests'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.799" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/classes/CSW_HIS.LibraryTest.html': Unrecognized table header 'Test'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.805" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/index.html': Unrecognized table header '1 tests'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.807" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/index.html': Unrecognized table header 'Package'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.808" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/index.html': Unrecognized table header 'Class'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.810" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/packages/CSW_HIS.html': Unrecognized table header '1 tests'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.818" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/reports/tests/test/packages/CSW_HIS.html': Unrecognized table header 'Class'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:08.823" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/src/main/resources/static/index.html': Unrecognized table header 'Username'. Available headers for data: 'Setting(s)', 'Variable(s)', 'Test Case(s)', 'Task(s)' and 'Keyword(s)'. Use 'Comment(s)' to embedded additional data.</msg>
+<msg timestamp="20190725 09:35:09.121" level="ERROR">Error in file '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/libs/test.robot': Importing test library '/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/libs/hello.py' failed: ImportError: No module named requests
+Traceback (most recent call last):
+  File "/home/pmlf/Desktop/GreetingRep/Titans_STS_Proj/CSW_HIS/build/libs/hello.py", line 1, in &lt;module&gt;
+    import requests
+PYTHONPATH:
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /home/pmlf/.local/lib/python2.7/site-packages
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages</msg>
+</errors>
+</robot>
