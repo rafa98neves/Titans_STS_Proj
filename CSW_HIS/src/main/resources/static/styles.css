@@ -3,6 +3,7 @@
   background-color:#400707;
   top:0;
   height:4rem;
+  padding: 7px 7% 0 17% !important;
 }
 
 #main-title {
@@ -21,6 +22,7 @@
 
 .csw-icon {
   vertical-align:middle;
+  margin-bottom:5px;
 }
 
 #main-area {
@@ -30,9 +32,22 @@
 
 #search-create {
   border:solid #400707;
+  border-radius: 4px;
   display:inline-block;
-  text-align:center;
   width:65%;
+}
+
+#search-create input {
+  vertical-align: middle;
+}
+
+#search-create *:not(i) {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+
+i {
+  margin-bottom:4px;
 }
 
 .subtitle {
@@ -51,15 +66,17 @@
 }
 
 #table-area {
-  width:100%;
-  text-align:center;
+  border:solid #400707;
+  border-radius: 4px;
+  display:inline-block;
+  align-content:center;
+  width:65%;
 }
 
 table {
   border-radius:4px;
-  border:solid #400707;
   margin:auto;
-  width:65%;
+  width:100%;
   padding: 10px;
 }
 
