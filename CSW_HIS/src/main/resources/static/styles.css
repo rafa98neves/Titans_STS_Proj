@@ -74,9 +74,11 @@ i {
 }
 
 table {
+  border:solid #ccc;
+  border-width: 1px;
   border-radius:4px;
   margin:auto;
-  width:100%;
+  width:93%;
   padding: 10px;
 }
 
@@ -86,6 +88,8 @@ table thead {
 
 table * {
   padding:5px;
+  border:solid #ccc;
+  border-width: 1px;
 }
 
 #back-link {
